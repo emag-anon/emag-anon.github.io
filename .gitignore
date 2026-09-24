@@ -1,0 +1,9 @@
+.DS_Store
+*.MOV
+*.mov
+*.zip
+
+# Raw exports and local working files should never be deployed.
+raw/
+working/
+tmp/

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="EMAG: Event Memory Retrieval and Spatial Affordance Grounding for Non-Markovian Robot Manipulation." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>EMAG | Anonymous ICLR 2027 Submission</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%236f5aa8%22/><path d=%22M17 18h31v8H27v7h17v8H27v7h21v8H17z%22 fill=%22white%22/></svg>" />
+    <link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=18" />
+    <script src="demo-data.js?v=22" defer></script>
+    <script src="script.js?v=16" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">EMAG</a>
+      <nav aria-label="Primary navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#experiments">Experiments</a>
+        <a href="#real-robot">Real robot</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero container">
+        <p class="venue">Anonymous ICLR 2027 Submission</p>
+        <h1>EMAG</h1>
+        <p class="paper-title">Event Memory Retrieval and Spatial Affordance Grounding for Non-Markovian Robot Manipulation</p>
+      </section>
+
+      <section class="section container" id="abstract">
+        <h2>Abstract</h2>
+        <div class="prose">
+          <p>Many real-world manipulation tasks are non-Markovian: the target of the current action may be determined by an event observed much earlier and therefore cannot be inferred from the current observation alone. Existing memory-augmented policies compress past observations into compact visual representations or textual summaries that track task progress, but do not explicitly couple semantic event retrieval with the visual evidence needed to re-ground a historically determined target in the current scene.</p>
+          <p>To address this issue, we introduce EMAG, which uses memory for semantic retrieval to identify which past event is relevant and for visual grounding to determine where its target is. Specifically, EMAG stores memory as captioned keyframes, pairing RGB snapshots of salient events with concise textual descriptions. Each caption serves as a semantic handle for memory retrieval, while the corresponding keyframe preserves the visual evidence needed for grounding.</p>
+          <p>Given the task goal, progress summary, and recent observations, EMAG queries the stored captions to retrieve relevant memory entries, re-grounds the corresponding target in the current observation, and predicts an affordance map that specifies the target region to act on. The predicted affordance map modulates the visual features of a low-level vision-language-action (VLA) policy to guide action generation.</p>
+          <p>Across all 16 RoboMME tasks, EMAG achieves an average success rate of 73.4%, exceeding the strongest official RoboMME baseline by 28.9 percentage points. On three real-robot tasks requiring object counting, object permanence, and sequence imitation, EMAG achieves an average success rate of 77.2%.</p>
+        </div>
+      </section>
+
+      <section class="section container" id="method">
+        <h2>Method</h2>
+        <p class="section-intro">EMAG separates the question of <em>which past event matters</em> from <em>where its target is now</em>.</p>
+        <figure class="main-figure">
+          <img src="assets/images/emag-framework.jpg" alt="EMAG architecture with captioned keyframe memory, two-round high-level reasoning, affordance grounding, and a low-level action policy." width="1800" height="964" />
+        </figure>
+      </section>
+
+      <section class="section container" id="experiments">
+        <h2>Experiments</h2>
+
+        <div class="experiment-block">
+          <div class="experiment-heading">
+            <h3>RoboMME</h3>
+          </div>
+          <div class="table-wrap">
+            <table class="results-table">
+              <thead>
+                <tr><th>Method</th><th>Counting</th><th>Permanence</th><th>Reference</th><th>Imitation</th><th>Overall</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>SAM2Act+</th><td>35.33</td><td>26.00</td><td>16.83</td><td>7.33</td><td>21.37</td></tr>
+                <tr><th>MemER</th><td>48.83</td><td>53.17</td><td>38.00</td><td>29.50</td><td>42.38</td></tr>
+                <tr><th>FrameSamp+Modul</th><td>65.22</td><td>25.11</td><td>36.33</td><td>51.39</td><td>44.51</td></tr>
+                <tr><th>PonderPounce</th><td>74.67</td><td>62.83</td><td>72.17</td><td>33.67</td><td>60.83</td></tr>
+                <tr class="emag-row"><th>EMAG</th><td>77.50</td><td>70.17</td><td>79.67</td><td>66.33</td><td>73.42</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="experiment-block real-robot-block">
+          <div class="experiment-heading">
+            <h3>Real-robot evaluation</h3>
+          </div>
+          <figure class="main-figure platform-figure">
+            <img src="assets/images/real-robot-platform.jpg" alt="Real-robot platform with an AgileX PiPER arm, wrist-mounted Intel RealSense D405 camera, external Intel RealSense L515 camera, and the Count Place, Button Replay, and Block Unmask workspaces." width="1500" height="1282" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="main-figure task-figure">
+            <img src="assets/images/real-robot-tasks.jpg" alt="Count Place, Block Unmask, and Button Replay task sequences." width="1800" height="624" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="main-figure">
+            <a href="assets/images/real-robot-results.png" target="_blank" rel="noopener" aria-label="Open the real-robot results chart at full resolution">
+              <img src="assets/images/real-robot-results.png?v=2" alt="Real-world task success rates for π₀.₅, FrameSamp+Modul, EMAG, and human performance. EMAG achieves 88.3% on Count Place, 63.3% on Block Unmask, 80.0% on Button Replay, and 77.2% overall." width="2400" height="1350" loading="lazy" decoding="async" />
+            </a>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section container" id="real-robot" aria-label="Real-robot videos">
+        <section class="video-section" id="emag-performance">
+          <div class="video-section-heading">
+            <h2>EMAG Performance</h2>
+          </div>
+          <div id="performance-groups"></div>
+        </section>
+
+        <section class="video-section" id="failure-modes">
+          <div class="video-section-heading">
+            <h2>Failure Modes</h2>
+          </div>
+          <div id="failure-groups"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="container">
+      <span>EMAG · Anonymous ICLR 2027 Submission</span>
+    </footer>
+  </body>
+</html>
