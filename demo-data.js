@@ -16,7 +16,7 @@ window.EMAG_DEMO_DATA = {
       "method": "emag",
       "outcome": "success",
       "title": "Task goal:",
-      "caption": "Put one yellow cube into the bin, then press the button to stop."
+      "caption": "Put one yellow block into the bin, then press the button to stop."
     },
     {
       "id": "emag-count-place-green-success",
@@ -24,7 +24,7 @@ window.EMAG_DEMO_DATA = {
       "method": "emag",
       "outcome": "success",
       "title": "Task goal:",
-      "caption": "Put one green cube into the bin, then press the button to stop."
+      "caption": "Put one green block into the bin, then press the button to stop."
     },
     {
       "id": "emag-count-place-yellow-green-success",
@@ -32,17 +32,17 @@ window.EMAG_DEMO_DATA = {
       "method": "emag",
       "outcome": "success",
       "title": "Task goal:",
-      "caption": "Put one yellow cube and one green cube into the bin, then press the button to stop."
+      "caption": "Put one yellow block and one green block into the bin, then press the button to stop."
     },
     {
       "id": "pi05-count-place-two-green-failure",
       "task": "count-place",
       "method": "pi05",
       "outcome": "failure",
-      "title": "Two-green-brick trial",
+      "title": "Two-green-block trial",
       "caption": "Unsuccessful Count Place rollout.",
-      "goal": "Put two green cubes into the bin, then press the button to stop.",
-      "failure": "Cube placement failure."
+      "goal": "Put two green blocks into the bin, then press the button to stop.",
+      "failure": "Block placement failure."
     },
     {
       "id": "pi05-count-place-green-yellow-failure",
@@ -51,7 +51,7 @@ window.EMAG_DEMO_DATA = {
       "outcome": "failure",
       "title": "Green-and-yellow trial",
       "caption": "Unsuccessful Count Place rollout.",
-      "goal": "Put one green cube and one yellow cube into the bin, then press the button to stop.",
+      "goal": "Put one green block and one yellow block into the bin, then press the button to stop.",
       "failure": "Premature termination."
     },
     {
@@ -101,8 +101,8 @@ window.EMAG_DEMO_DATA = {
       "outcome": "failure",
       "title": "First-pick failure",
       "caption": "Grasp failure on the first pick.",
-      "goal": "Put two green cubes into the bin, then press the button to stop.",
-      "failure": "Cube grasp failure."
+      "goal": "Put two green blocks into the bin, then press the button to stop.",
+      "failure": "Block grasp failure."
     },
     {
       "id": "framesamp-count-place-second-grasp",
@@ -111,8 +111,8 @@ window.EMAG_DEMO_DATA = {
       "outcome": "failure",
       "title": "Second-pick failure",
       "caption": "Grasp failure on the second pick.",
-      "goal": "Put one green cube and one yellow cube into the bin, then press the button to stop.",
-      "failure": "Cube grasp failure."
+      "goal": "Put one green block and one yellow block into the bin, then press the button to stop.",
+      "failure": "Block grasp failure."
     },
     {
       "id": "framesamp-block-unmask-grasp-failure",
@@ -140,9 +140,9 @@ window.EMAG_DEMO_DATA = {
       "method": "emag",
       "outcome": "failure",
       "title": "Grasp failure",
-      "caption": "EMAG fails to pick up the brick.",
-      "goal": "Put one yellow cube into the bin, then press the button to stop.",
-      "failure": "Cube grasp failure."
+      "caption": "EMAG fails to pick up the block.",
+      "goal": "Put one yellow block into the bin, then press the button to stop.",
+      "failure": "Block grasp failure."
     },
     {
       "id": "emag-count-place-placement-failure",
@@ -151,8 +151,8 @@ window.EMAG_DEMO_DATA = {
       "outcome": "failure",
       "title": "Placement failure",
       "caption": "EMAG fails to complete the placement.",
-      "goal": "Put one green cube into the bin, then press the button to stop.",
-      "failure": "Premature cube release."
+      "goal": "Put one green block into the bin, then press the button to stop.",
+      "failure": "Premature block release."
     },
     {
       "id": "emag-block-unmask-success-01",
@@ -230,7 +230,7 @@ window.EMAG_DEMO_DATA = {
       "title": "Block Unmask · trial 1",
       "caption": "Unsuccessful Block Unmask rollout.",
       "goal": "Pick up the cup covering the blue block.",
-      "failure": "Cup grasp slippage."
+      "failure": "Grasp slippage."
     },
     {
       "id": "emag-block-unmask-failure-02",
@@ -240,7 +240,7 @@ window.EMAG_DEMO_DATA = {
       "title": "Block Unmask · trial 2",
       "caption": "Unsuccessful Block Unmask rollout.",
       "goal": "Pick up the cups covering the red and blue blocks.",
-      "failure": "Cup grasp slippage."
+      "failure": "Grasp slippage."
     },
     {
       "id": "emag-button-replay-failure-01",
@@ -250,7 +250,7 @@ window.EMAG_DEMO_DATA = {
       "title": "Sequence replay · trial 1",
       "caption": "Unsuccessful Button Replay rollout.",
       "goal": "Replay the demonstrated button sequence in order.",
-      "failure": "Incomplete button sequence."
+      "failure": "Omitted button press."
     },
     {
       "id": "emag-button-replay-failure-02",
@@ -260,7 +260,7 @@ window.EMAG_DEMO_DATA = {
       "title": "Sequence replay · trial 2",
       "caption": "Unsuccessful Button Replay rollout.",
       "goal": "Replay the demonstrated button sequence in order.",
-      "failure": "Incomplete button sequence."
+      "failure": "Omitted button press."
     }
   ].map((video) => ({
     ...video,
