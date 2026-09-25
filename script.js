@@ -6,12 +6,13 @@
 
   const find = (items, id) => items.find((item) => item.id === id);
 
+  const failureKeyword = (video) => video.failure.replace(/\.$/, "");
+
   function videoDescription(video) {
     if (video.section === "failure" && video.failure) {
-      return `<dl class="failure-description">
-        ${video.goal ? `<div><dt>Task goal</dt><dd>${video.goal}</dd></div>` : ""}
-        <div><dt>Failure mode</dt><dd>${video.failure}</dd></div>
-      </dl>`;
+      return video.goal
+        ? `<p class="failure-goal"><strong>${find(data.tasks, video.task).label}:</strong> ${video.goal}</p>`
+        : "";
     }
     if (video.title === "Task goal:") {
       return `<p class="video-goal"><strong>Task goal:</strong> ${video.caption}</p>`;
@@ -24,8 +25,15 @@
   }
 
   function videoCard(video, controls = "") {
+    const failureHeading = video.section === "failure" && video.failure
+      ? `<div class="failure-card-heading">
+          <span class="failure-icon" aria-hidden="true">☹</span>
+          <span class="failure-keyword">${failureKeyword(video)}</span>
+        </div>`
+      : "";
     return `
-      <article class="video-card">
+      <article class="video-card${video.section === "failure" ? " failure-card" : ""}">
+        ${failureHeading}
         <div class="video-shell">
           <video controls playsinline preload="none" poster="${video.poster}" aria-label="${find(data.methods, video.method).label}: ${find(data.tasks, video.task).label} — ${video.title}">
             <source src="${video.src}" type="video/mp4" />
@@ -43,7 +51,7 @@
     );
     if (!videos.length) return "";
     return `
-      <article class="rollout-group">
+      <article class="rollout-group performance-task-card">
         <div class="rollout-group-heading">
           <h3>${task.label}</h3>
         </div>
@@ -77,10 +85,7 @@
                 ${chevron}
               </button>` : "";
             return `
-              <section class="failure-task" data-failure-group="${key}" aria-labelledby="title-${key}">
-                <div class="failure-task-heading">
-                  <h4 id="title-${key}">${task.label}</h4>
-                </div>
+              <section class="failure-task" data-failure-group="${key}" aria-label="${task.label}">
                 <div class="failure-viewport" id="video-${key}">
                   ${videos.length ? videoCard(videos[0], navigation) : '<p class="failure-empty">No video available.</p>'}
                 </div>
@@ -108,6 +113,7 @@
     previousVideo.poster = nextVideo.poster;
     previousVideo.setAttribute("aria-label", `${find(data.methods, nextVideo.method).label}: ${find(data.tasks, nextVideo.task).label} — ${nextVideo.title}`);
     previousVideo.load();
+    viewport.querySelector(".failure-keyword").textContent = failureKeyword(nextVideo);
     viewport.querySelector(".video-description").innerHTML = videoDescription(nextVideo);
     const previousButton = task.querySelector(".failure-prev");
     const nextButton = task.querySelector(".failure-next");

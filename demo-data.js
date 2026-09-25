@@ -42,7 +42,7 @@ window.EMAG_DEMO_DATA = {
       "title": "Two-green-block trial",
       "caption": "Unsuccessful Count Place rollout.",
       "goal": "Put two green blocks into the bin, then press the button to stop.",
-      "failure": "Block placement failure."
+      "failure": "Policy stall."
     },
     {
       "id": "pi05-count-place-green-yellow-failure",
@@ -59,10 +59,10 @@ window.EMAG_DEMO_DATA = {
       "task": "block-unmask",
       "method": "pi05",
       "outcome": "failure",
-      "title": "Cover-grasp failure",
-      "caption": "Failure to pick up a cover.",
+      "title": "Grasp slippage",
+      "caption": "The grasp slips before lifting the cup.",
       "goal": "Pick up the cup covering the red block.",
-      "failure": "Cup grasp failure."
+      "failure": "Grasp slippage."
     },
     {
       "id": "pi05-block-unmask-wrong-cover",
@@ -119,10 +119,10 @@ window.EMAG_DEMO_DATA = {
       "task": "block-unmask",
       "method": "framesampl-modul",
       "outcome": "failure",
-      "title": "Cover-grasp failure",
-      "caption": "Failure to pick up a cover.",
+      "title": "Grasp slippage",
+      "caption": "The grasp slips before lifting the cup.",
       "goal": "Pick up the cup covering the yellow block.",
-      "failure": "Cup grasp failure."
+      "failure": "Grasp slippage."
     },
     {
       "id": "framesamp-block-unmask-wrong-cover",
