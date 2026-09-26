@@ -47,35 +47,37 @@ h1 { margin: 0; color: var(--accent); font-size: clamp(64px, 10vw, 104px); font-
 .paper-title { max-width: 920px; margin: 25px auto 0; font-size: clamp(25px, 3.4vw, 40px); font-weight: 550; letter-spacing: -.035em; line-height: 1.24; text-wrap: balance; }
 
 .section { padding: 72px 0; }
-h2 { margin: 0 0 36px; font-size: 32px; letter-spacing: -.025em; text-align: center; }
+h2 { margin: 0; font-size: 32px; letter-spacing: -.025em; text-align: center; }
+h3 { margin: 0; font-size: 22px; letter-spacing: -.025em; }
+.section > h2, .experiment-heading, .video-section-heading { margin-bottom: 36px; }
 .section-intro { max-width: 760px; margin: -16px auto 30px; color: var(--muted); text-align: center; }
 .prose { max-width: 840px; margin: 0 auto; color: #404650; font-size: 16px; line-height: 1.85; }
 .prose p:last-child { margin-bottom: 0; }
 .main-figure { margin: 30px 0 0; }
 .main-figure img { width: 100%; height: auto; }
+.wide-figure { width: 100%; max-width: 1040px; margin-right: auto; margin-left: auto; }
 
 .experiment-block + .experiment-block { margin-top: 52px; }
-.experiment-heading { margin-bottom: 24px; text-align: center; }
-.experiment-heading h3 { margin: 0 0 8px; font-size: 22px; }
+.experiment-heading { text-align: center; }
 .experiment-heading p { margin: 0; color: var(--muted); font-size: 14px; }
 .table-wrap { overflow-x: auto; }
 table { width: 100%; min-width: 680px; border-collapse: collapse; background: #fff; font-size: 14px; font-variant-numeric: tabular-nums; }
 th, td { padding: 16px 14px; border-bottom: 1px solid var(--line); text-align: center; }
 th:first-child { text-align: left; }
 thead th { color: var(--muted); font-size: 14px; }
+.table-group th { padding: 20px 14px 8px; border-bottom: 1px solid var(--line); color: var(--muted); background: #fff; font-size: 13px; font-style: italic; font-weight: 550; letter-spacing: .01em; }
 .best, .emag-row { color: var(--accent); font-weight: 600; background: var(--accent-light); }
 .results-table { max-width: 920px; min-width: 760px; margin: 0 auto; }
 .results-table th:first-child { width: 25%; }
 .results-table th:not(:first-child), .results-table td:not(:first-child) { text-align: center; }
 .note { max-width: 840px; margin: 20px auto 0; color: var(--muted); font-size: 14px; }
-.task-figure { margin: 0 0 22px; }
-.platform-figure { max-width: 900px; margin: 0 auto 32px; }
+.real-robot-results-figure { margin-top: 0; }
+.platform-figure { max-width: 900px; margin: 48px auto 0; }
 
 .video-section + .video-section { margin-top: 96px; padding-top: 72px; border-top: 1px solid var(--line); }
-.video-section-heading { margin-bottom: 40px; }
 .rollout-group + .rollout-group { margin-top: 56px; }
 .rollout-group-heading { margin-bottom: 18px; text-align: center; }
-.rollout-group-heading h3 { margin: 0; font-size: 22px; letter-spacing: -.025em; }
+.rollout-group-heading h3 { letter-spacing: -.025em; }
 .performance-task-card { padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .performance-task-card .rollout-group-heading { margin: -2px 0 22px; }
 .performance-task-card + .performance-task-card { margin-top: 28px; }
@@ -89,7 +91,6 @@ thead th { color: var(--muted); font-size: 14px; }
 .failure-task-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .failure-task { min-width: 0; text-align: center; }
 .failure-policy .rollout-group-heading { margin-bottom: 22px; text-align: center; }
-.failure-policy .rollout-group-heading h3 { font-size: 20px; }
 .failure-card { overflow: hidden; border: 1px solid var(--line); border-radius: 7px; background: #fff; }
 .failure-card-heading { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px 14px; gap: 8px; border-bottom: 1px solid var(--line); }
 .failure-icon { flex: 0 0 auto; color: #925f5f; font-family: Georgia, "Times New Roman", serif; font-size: 19px; line-height: 1; }
